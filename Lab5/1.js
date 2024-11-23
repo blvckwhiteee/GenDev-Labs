@@ -1,0 +1,11 @@
+const seq = a => b => {
+    if (typeof b === 'number') {
+        return a(b)
+    }
+    else {
+        return seq(x => a(b(x)))
+    }
+}
+console.log(seq(x => x + 7)(x => x * 2)(5))
+console.log(seq(x => x * 2)(x => x + 7)(5))
+console.log(seq(x => x + 1)(x => x * 2)(x => x / 3)(x => x - 4)(7))
